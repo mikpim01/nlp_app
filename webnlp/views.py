@@ -10,9 +10,10 @@ def home(request):
 
 def regex(request):
     if request.method == 'POST':
-        phone_pattern = r'\d{3}-d\{3}-\d{4}'
+        phone_pattern = re.compile(
+            r'(\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4})')
         regex_textarea = request.POST['regex-form']
-        regex_phone = re.findall(phone_pattern, regex_textarea)
+        regex_phone = phone_pattern.findall(regex_textarea)
 
         return render(request, 'regex.html', {
             'regex_phone': regex_phone
@@ -65,7 +66,7 @@ def ner(request):
     if request.method == 'POST':
         ner_area = request.POST['ner-form']
         ner_area = nlp(ner_area)
-        ner_tokens_labels_list = [(i.text, i.label_) for i in ner_area]
+        ner_tokens_labels_list = [(i.text, i.label_) for i in ner_area.ents]
         ner_tokens_labels = [i for i in ner_tokens_labels_list]
         only_labels = [i.label_ for i in ner_area.ents]
         ner_explain_list = [spacy.explain(i) for i in only_labels]

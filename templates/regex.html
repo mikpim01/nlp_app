@@ -1,1 +1,21 @@
 {% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <table class="table table-dark widthx">
+            <thead>
+            <tr>
+                <th scope="col">UA Phone Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for phone in regex_phone %}
+                <tr>
+                    <td class="bg-primary">{{ phone }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

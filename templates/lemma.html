@@ -1,1 +1,32 @@
 {% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <table class="table table-dark widthx">
+            <thead>
+            <tr>
+                <th scope="col">Results of lemmatization</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Processed</th>
+                    {% for word in unprocessed %}
+                        <th class="row">
+                            <td class="bg-warning" style="color: black;">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th scope="row">Lemmatized</th>
+                    {% for word in lemmatized %}
+                        <th class="row">
+                            <td class="bg-primary">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

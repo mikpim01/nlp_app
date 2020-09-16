@@ -8,8 +8,11 @@
             <form method="POST" action="{% url 'webnlp:regex' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Enter text</label>
+                    <label for="exampleFormControlTextarea1">
+                        Enter text here in order to perform regex on UA phone number:
+                    </label>
                     <br>
+                     <p>Example: My relevant phone number is +38(063)140 7788 or 063 3291305</p>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
                               name="regex-form"
                               placeholder="Enter text here in order to perform regex on UA phone number">
@@ -26,8 +29,11 @@
             <form method="POST" action="{% url 'webnlp:lemma' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea2">Enter text</label>
+                    <label for="exampleFormControlTextarea2">
+                        Enter text here in order to perform lemmatization
+                    </label>
                     <br>
+                     <p>Example: Elon Musk shares his thoughts on Bill Gates.</p>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
                               name="lemma-form"
                               placeholder="Enter text here in order to perform lemmatization">
@@ -44,8 +50,11 @@
             <form method="POST" action="{% url 'webnlp:pos' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea3">Enter text</label>
+                    <label for="exampleFormControlTextarea3">
+                        Enter text here in order to perform part of speech
+                    </label>
                     <br>
+                    <p>Example: Elon Musk shares his thoughts on Bill Gates.</p>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
                               name="pos-form"
                               placeholder="Enter text here in order to perform part of speech">
@@ -62,8 +71,11 @@
             <form method="POST" action="{% url 'webnlp:ner' %}">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea4">Enter text</label>
+                    <label for="exampleFormControlTextarea4">
+                        Enter text here in order to perform named entity recognition
+                    </label>
                     <br>
+                    <p>Example: Elon Musk shares his thoughts on Bill Gates. Yesterday he was visited UN.</p>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
                               name="ner-form"
                               placeholder="Enter text here in order to perform named entity recognition">

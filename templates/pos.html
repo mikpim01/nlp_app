@@ -1,1 +1,40 @@
 {% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <table class="table table-dark widthx">
+            <thead>
+            <tr>
+                <th scope="col">Results of Part of Speech Tagging</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Processed</th>
+                    {% for word in unpossed %}
+                        <th class="row">
+                            <td class="bg-warning" style="color: black;">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th scope="row">POS</th>
+                    {% for word in possed %}
+                        <th class="row">
+                            <td class="bg-primary">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+                 <tr>
+                    <th scope="row">Explanations</th>
+                    {% for word in explain_pos %}
+                        <th class="row">
+                            <td class="bg-success">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,1 +1,32 @@
 {% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div class="container">
+        <table class="table table-dark widthx">
+            <thead>
+            <tr>
+                <th scope="col">Results of Named Entity Recognition</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">NER</th>
+                    {% for word in ner_tokens_labels %}
+                        <th class="row">
+                            <td class="bg-primary">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <th scope="row">Explanations</th>
+                    {% for word in explain_ner %}
+                        <th class="row">
+                            <td class="bg-success">{{ word }}</td>
+                        </th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
