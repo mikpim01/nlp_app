@@ -1,1 +1,77 @@
 {% extends 'base.html' %}
+
+
+{% block content %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="{% url 'webnlp:regex' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Enter text</label>
+                    <br>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
+                              name="regex-form"
+                              placeholder="Enter text here in order to perform regex on UA phone number">
+                    </textarea>
+                    <br>
+                    <button type="submit" class="btn btn-outline-primary float-right">Regex</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="{% url 'webnlp:lemma' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea2">Enter text</label>
+                    <br>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
+                              name="lemma-form"
+                              placeholder="Enter text here in order to perform lemmatization">
+                    </textarea>
+                    <br>
+                    <button type="submit" class="btn btn-outline-warning float-right">Lemma</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="{% url 'webnlp:pos' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea3">Enter text</label>
+                    <br>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
+                              name="pos-form"
+                              placeholder="Enter text here in order to perform part of speech">
+                    </textarea>
+                    <br>
+                    <button type="submit" class="btn btn-outline-success float-right">POS</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="{% url 'webnlp:ner' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea4">Enter text</label>
+                    <br>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="100"
+                              name="ner-form"
+                              placeholder="Enter text here in order to perform named entity recognition">
+                    </textarea>
+                    <br>
+                    <button type="submit" class="btn btn-outline-secondary float-right">Ner</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

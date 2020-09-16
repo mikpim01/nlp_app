@@ -13,8 +13,8 @@ def regex(request):
     })
 
 
-def lemo(request):
-    return render(request, 'lemo.html', {
+def lemma(request):
+    return render(request, 'lemma.html', {
 
     })
 
