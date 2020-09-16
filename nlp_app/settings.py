@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+
+import django_heroku
 from environs import Env
 
 # env variable for .env file
@@ -25,12 +27,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str('SECRET_KEY')
+SECRET_KEY = '4l!a8w$@4#ksj7xd3r6#(qg9&+fd0*j-usbw1e)i20el7cym4('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# for heroku app
+ALLOWED_HOSTS = ['nlp-text-app.herokuapp.com']
 
 
 # Application definition
@@ -87,10 +90,10 @@ WSGI_APPLICATION = 'nlp_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str('DB_NAME'),
-        'USER': env.str('DB_USER'),
-        'PASSWORD': env.str('DB_PASSWORD'),
-        'HOST': env.str('DB_HOST'),
+        'NAME': 'nlp_app',
+        'USER': 'postgres',
+        'PASSWORD': 'Tinka140792',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -133,3 +136,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# for heroku app
+django_heroku.settings(locals())
